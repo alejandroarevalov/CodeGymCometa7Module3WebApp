@@ -3,23 +3,23 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-    <servlet-name>MiServlet</servlet-name>
-    <servlet-class>MiServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>MiServlet</servlet-name>
-    <url-pattern>/miservlet</url-pattern>
-  </servlet-mapping>
-  <!--
-  <filter>
-    <filter-name>Filtro1</filter-name>
-    <filter-class>FiltroServlet</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>Filtro1</filter-name>
-    <url-pattern>/segundoservlet</url-pattern>
-  </filter-mapping>
-  -->
+    <display-name>CodeGym Module 3 Web Application</display-name>
+    <servlet>
+        <servlet-name>MiServlet</servlet-name>
+        <servlet-class>MiServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MiServlet</servlet-name>
+        <url-pattern>/miservlet</url-pattern>
+    </servlet-mapping>
+      <!--
+      <filter>
+        <filter-name>Filtro1</filter-name>
+        <filter-class>FiltroServlet</filter-class>
+      </filter>
+      <filter-mapping>
+        <filter-name>Filtro1</filter-name>
+        <url-pattern>/segundoservlet</url-pattern>
+      </filter-mapping>
+      -->
 </web-app>

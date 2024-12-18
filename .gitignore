@@ -38,5 +38,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
-### Smart Tomcat
+### Smart Tomcat files ###
 .smarttomcat/
