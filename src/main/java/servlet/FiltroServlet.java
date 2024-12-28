@@ -1,3 +1,5 @@
+package servlet;
+
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -5,8 +7,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebFilter("/miservlet")
-public class FiltroForwarding implements Filter {
+@WebFilter("/segundoservlet")
+public class FiltroServlet implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
@@ -16,13 +18,14 @@ public class FiltroForwarding implements Filter {
     public void doFilter(ServletRequest servletRequest,
                          ServletResponse servletResponse,
                          FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
-
-        String parametro = httpRequest.getParameter("valor");
-        boolean condicion = ((parametro == null) || !parametro.equals("12345"));
-        if (condicion) {
-            RequestDispatcher dispatcher = httpRequest.getRequestDispatcher("/error");
-            dispatcher.forward(servletRequest, servletResponse);
+        System.out.println("Filtro entra en ejecucion");
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        String encabezadoPersonalizado = request.getHeader("X-Encabezado-Personalizado");
+        if (encabezadoPersonalizado == null || encabezadoPersonalizado.isEmpty()) {
+            HttpServletResponse response = (HttpServletResponse) servletResponse;
+            response.setStatus(400);
+            response.getWriter().print("Solicitud malformada. Recuerde enviar el encabezado");
+            response.getWriter().close();
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
         }
